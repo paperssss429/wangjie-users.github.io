@@ -86,17 +86,17 @@
 <meta property="og:site_name" content="苦行僧">
 <meta property="og:description" content="关于作者作者小硕一枚，研究方向为机器学习与自然语言处理，欢迎大家关注我的个人博客https://wangjie-users.github.io/，相互交流，一起学习成长。 前言机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181106221118893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqNTYzNzYwNg==,size_16,color_FFFFFF,t_70">
+<meta property="og:image" content="https://blog.csdn.net/wj5637606/article/details/83817883">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2476c1c30c.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be24ce706413.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be24ddbb7cb4.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be24fb903ac6.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2591d7a0d3.png">
-<meta property="og:updated_time" content="2018-11-07T03:41:24.175Z">
+<meta property="og:updated_time" content="2018-11-07T03:48:12.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法的评价指标">
 <meta name="twitter:description" content="关于作者作者小硕一枚，研究方向为机器学习与自然语言处理，欢迎大家关注我的个人博客https://wangjie-users.github.io/，相互交流，一起学习成长。 前言机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所">
-<meta name="twitter:image" content="https://img-blog.csdnimg.cn/20181106221118893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqNTYzNzYwNg==,size_16,color_FFFFFF,t_70">
+<meta name="twitter:image" content="https://blog.csdn.net/wj5637606/article/details/83817883">
 
 
 
@@ -360,7 +360,7 @@
 
       
         <h2 id="关于作者"><a href="#关于作者" class="headerlink" title="关于作者"></a>关于作者</h2><p>作者小硕一枚，研究方向为机器学习与自然语言处理，欢迎大家关注我的个人博客<a href="https://wangjie-users.github.io/" target="_blank" rel="noopener">https://wangjie-users.github.io/</a>，相互交流，一起学习成长。</p>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所示。本文主要讲解分类问题的评价指标。<br><img src="https://img-blog.csdnimg.cn/20181106221118893.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dqNTYzNzYwNg==,size_16,color_FFFFFF,t_70" alt="常见的评价指标"></p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所示。本文主要讲解分类问题的评价指标。<br><img src="https://blog.csdn.net/wj5637606/article/details/83817883" alt="常见的评价指标"></p>
 <h2 id="二分类问题中常用的概念"><a href="#二分类问题中常用的概念" class="headerlink" title="二分类问题中常用的概念"></a>二分类问题中常用的概念</h2><p>首先解释几个二分类问题中常用的概念：True Positive, False Positive, True Negative, False Negative。它们是根据真实类别与预测类别的组合来区分的。<br>假设有一批测试样本，只包含正例和反例两种类别。则有：</p>
 <ul>
 <li>预测值正例，记为P(positive)</li>
