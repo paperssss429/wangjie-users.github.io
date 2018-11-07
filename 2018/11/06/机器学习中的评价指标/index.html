@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be24ddbb7cb4.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be24fb903ac6.png">
 <meta property="og:image" content="https://i.loli.net/2018/11/07/5be2591d7a0d3.png">
-<meta property="og:updated_time" content="2018-11-07T06:55:55.529Z">
+<meta property="og:updated_time" content="2018-11-07T06:59:22.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习算法的评价指标">
 <meta name="twitter:description" content="关于作者作者小硕一枚，研究方向为机器学习与自然语言处理，欢迎大家关注我的个人博客https://wangjie-users.github.io/，相互交流，一起学习成长。 前言机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所">
@@ -370,7 +370,8 @@
 <li>TP: 预测类别为正，真实类别也为正例；</li>
 <li>FP：预测类别为正例，真实类别为反例；</li>
 <li>FN：预测为反例，真实类别为正例；</li>
-<li>TN：预测为反例，真实类别也为正例；<br>&lt;! –more–&gt;<h2 id="精确率（precision）"><a href="#精确率（precision）" class="headerlink" title="精确率（precision）"></a>精确率（precision）</h2><img src="https://i.loli.net/2018/11/07/5be24ce706413.png" alt="精确率"><br>精确率是针对我们<strong>模型预测的结果</strong>而言的，它表示的是预测为正的样本中有多少是真正的正样本；<br>故分子为TP，而预测为正有两种可能：真正(TP)和假正(FP)，即为分母。<h2 id="召回率（recall）"><a href="#召回率（recall）" class="headerlink" title="召回率（recall）"></a>召回率（recall）</h2><img src="https://i.loli.net/2018/11/07/5be24ddbb7cb4.png" alt="召回率"><br>召回率是针对<strong>原始样本</strong>而言的，表示样本中的正例有多少被预测正确了，故分母应表示所有的原始样本；<h2 id="F1值"><a href="#F1值" class="headerlink" title="F1值"></a>F1值</h2><img src="https://i.loli.net/2018/11/07/5be24fb903ac6.png" alt="F1值"><br>F1值是精确率和召回率的调和均值，当P和R值都高时，F1值也会高。<h2 id="ROC、AUC"><a href="#ROC、AUC" class="headerlink" title="ROC、AUC"></a>ROC、AUC</h2>ROC全称是“受试者工作特征”（Receiver Operating Characteristic）。对于计算ROC，有三个重要概念：TPR，FPR，截断点。<br>TPR即 True Positive Rate，表示真实的正例中，被预测正确的比例，即TPR = TP/(TP+FN);<br>FPR即 False Positive Rate, 表示真实的反例中，被预测正确的比例，即FPR = FP/(TN+FP);<br>很多ML算法是为test样本产生一个概率预测，然后将这个概率预测值与一个分类阈值(threhold)进行比较，若大于阈值则分为正类，反之为负类。这里的阈值就是<strong>截断点</strong>，比如对算出测试样本A为正类的概率为0.3，低于截断点0.5，于是将A分为负类。<br>截断点取不同的值，TPR和FPR的计算结果也不同。将截断点不同取值下对应的TPR和FPR结果作图得到的曲线，就是<strong>ROC</strong>曲线。横轴是FPR，纵轴是TPR。<br><img src="https://i.loli.net/2018/11/07/5be2591d7a0d3.png" alt="ROC曲线"><br>若比较两个算法的优劣，可以看哪个曲线能把另一个完全包住；或者计算曲线的面积，即<strong>AUC</strong>的值。<br><strong>ROC经常用于样本类别不均衡的二分类问题。</strong><h2 id="sklearn实现roc、auc"><a href="#sklearn实现roc、auc" class="headerlink" title="sklearn实现roc、auc"></a>sklearn实现roc、auc</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve, auc</span><br><span class="line">fpr, tpr, th = roc_curve(test_Y, pred_y) # 得到一组fpr、tpr的值</span><br><span class="line">roc_auc = auc(fpr, tpr) # 计算auc的值</span><br></pre></td></tr></table></figure></li>
+<li>TN：预测为反例，真实类别也为正例；<a id="more"></a>
+<h2 id="精确率（precision）"><a href="#精确率（precision）" class="headerlink" title="精确率（precision）"></a>精确率（precision）</h2><img src="https://i.loli.net/2018/11/07/5be24ce706413.png" alt="精确率"><br>精确率是针对我们<strong>模型预测的结果</strong>而言的，它表示的是预测为正的样本中有多少是真正的正样本；<br>故分子为TP，而预测为正有两种可能：真正(TP)和假正(FP)，即为分母。<h2 id="召回率（recall）"><a href="#召回率（recall）" class="headerlink" title="召回率（recall）"></a>召回率（recall）</h2><img src="https://i.loli.net/2018/11/07/5be24ddbb7cb4.png" alt="召回率"><br>召回率是针对<strong>原始样本</strong>而言的，表示样本中的正例有多少被预测正确了，故分母应表示所有的原始样本；<h2 id="F1值"><a href="#F1值" class="headerlink" title="F1值"></a>F1值</h2><img src="https://i.loli.net/2018/11/07/5be24fb903ac6.png" alt="F1值"><br>F1值是精确率和召回率的调和均值，当P和R值都高时，F1值也会高。<h2 id="ROC、AUC"><a href="#ROC、AUC" class="headerlink" title="ROC、AUC"></a>ROC、AUC</h2>ROC全称是“受试者工作特征”（Receiver Operating Characteristic）。对于计算ROC，有三个重要概念：TPR，FPR，截断点。<br>TPR即 True Positive Rate，表示真实的正例中，被预测正确的比例，即TPR = TP/(TP+FN);<br>FPR即 False Positive Rate, 表示真实的反例中，被预测正确的比例，即FPR = FP/(TN+FP);<br>很多ML算法是为test样本产生一个概率预测，然后将这个概率预测值与一个分类阈值(threhold)进行比较，若大于阈值则分为正类，反之为负类。这里的阈值就是<strong>截断点</strong>，比如对算出测试样本A为正类的概率为0.3，低于截断点0.5，于是将A分为负类。<br>截断点取不同的值，TPR和FPR的计算结果也不同。将截断点不同取值下对应的TPR和FPR结果作图得到的曲线，就是<strong>ROC</strong>曲线。横轴是FPR，纵轴是TPR。<br><img src="https://i.loli.net/2018/11/07/5be2591d7a0d3.png" alt="ROC曲线"><br>若比较两个算法的优劣，可以看哪个曲线能把另一个完全包住；或者计算曲线的面积，即<strong>AUC</strong>的值。<br><strong>ROC经常用于样本类别不均衡的二分类问题。</strong><h2 id="sklearn实现roc、auc"><a href="#sklearn实现roc、auc" class="headerlink" title="sklearn实现roc、auc"></a>sklearn实现roc、auc</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.metrics <span class="keyword">import</span> roc_curve, auc</span><br><span class="line">fpr, tpr, th = roc_curve(test_Y, pred_y) # 得到一组fpr、tpr的值</span><br><span class="line">roc_auc = auc(fpr, tpr) # 计算auc的值</span><br></pre></td></tr></table></figure></li>
 </ul>
 </li>
 </ul>
@@ -570,7 +571,7 @@
   <i class="fa fa-user-md"></i><span id="busuanzi_container_site_pv">
   本站总访问量:<span id="busuanzi_value_site_pv"></span></span>
   <span class="post-meta-divider">|</span>
-  <span class="post-count">博客全站共870字</span>
+  <span class="post-count">博客全站共867字</span>
 </div>
 
 
