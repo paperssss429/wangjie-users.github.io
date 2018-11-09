@@ -91,7 +91,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/09/5be5238b9a4f0.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/09/5be523cd43ac1.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/09/5be524071dc6f.jpg">
-<meta property="og:updated_time" content="2018-11-09T06:07:24.903Z">
+<meta property="og:updated_time" content="2018-11-09T06:14:58.828Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的线性代数知识（上）">
 <meta name="twitter:description" content="前言As we all know, 线性代数对于机器学习的重要性不言而喻。但纵观国内的教材和课程，大部分线性代数的讲解，一上来就堆满了各种定义和公式，从而导致我们知其然而不知其所以然，不利于我们深入理解机器学习的算法。因此，希望本篇博文能帮大家从另一个角度理解线性代数。但是注意，阅读本篇博文，最好已经有了线性代数的基础，比如要知道矩阵的形式，矩阵怎么相乘之类的基础知识。然后如果你虽然知道矩阵相乘怎">
@@ -384,10 +384,8 @@
 <h2 id="矩阵的本质（一）"><a href="#矩阵的本质（一）" class="headerlink" title="矩阵的本质（一）"></a>矩阵的本质（一）</h2><h3 id="1、矩阵本质上就是映射、变换"><a href="#1、矩阵本质上就是映射、变换" class="headerlink" title="1、矩阵本质上就是映射、变换"></a>1、<strong>矩阵本质上就是映射、变换</strong></h3><p>比如，对于空间A中的一个三维点a(a1,a2,a3)，空间B的一个二维点b(b1,b2)，那么如何将a点映射成b点呢？只需构造一个维度为3*2的矩阵，利用矩阵乘法便可实现映射。<br><strong>矩阵的本质就是描述空间的映射。因此它可以看作一个函数，接受一个空间作为输入，输出一个映射后的新空间。</strong></p>
 <h3 id="2、各种矩阵运算的本质是什么？"><a href="#2、各种矩阵运算的本质是什么？" class="headerlink" title="2、各种矩阵运算的本质是什么？"></a>2、各种矩阵运算的本质是什么？</h3><ul>
 <li><em>加法</em>：<strong>矩阵的加法就是映射规则的调整</strong>。矩阵A+矩阵B就可以看作，用B中各个元素的值去调整A这个映射规则。</li>
-<li><em>乘法</em>：<strong>矩阵的乘法表示线性映射的叠加</strong>。<br>比如，我们已经知道矩阵A可以从X空间映射到Z空间，矩阵B可以从Z空间映射到Y空间，那么怎么从X空间映射到Y呢？答案就是矩阵乘法A*B。<ul>
+<li><em>乘法</em>：<strong>矩阵的乘法表示线性映射的叠加</strong>。<br>比如，我们已经知道矩阵A可以从X空间映射到Z空间，矩阵B可以从Z空间映射到Y空间，那么怎么从X空间映射到Y呢？答案就是矩阵乘法A*B。</li>
 <li><em>逆运算</em>：<strong>矩阵的逆运算就是映射的逆映射</strong>；这里我用一个NLP的例子来解释，比如在一个机器翻译问题中，源语言在X空间，目标语言在Y空间，我们通过训练知道了如何从X空间映射到Y空间，即通过训练得到了映射矩阵A。那么我们如何反向翻译呢？那就是求A的逆矩阵就可以了，完全无需再反向重新训练。</li>
-</ul>
-</li>
 </ul>
 <h3 id="3、特殊矩阵的含义（从映射角度理解）"><a href="#3、特殊矩阵的含义（从映射角度理解）" class="headerlink" title="3、特殊矩阵的含义（从映射角度理解）"></a>3、特殊矩阵的含义（从映射角度理解）</h3><ul>
 <li>零矩阵就是将任何空间映射成原点的矩阵；</li>
