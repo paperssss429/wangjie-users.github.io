@@ -89,7 +89,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea957b82fb8.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea96e31a0db.jpg">
-<meta property="og:updated_time" content="2018-11-13T11:17:58.400Z">
+<meta property="og:updated_time" content="2018-11-13T12:33:23.264Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的线性代数知识（下）">
 <meta name="twitter:description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
@@ -379,9 +379,9 @@
 
       
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="https://blog.csdn.net/wj5637606/article/details/83864546" target="_blank" rel="noopener">机器学习中的线性代数知识（上）</a>一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。<br><a id="more"></a></p>
-<h3 id="向量和矩阵的范数归纳"><a href="#向量和矩阵的范数归纳" class="headerlink" title="向量和矩阵的范数归纳"></a>向量和矩阵的范数归纳</h3><h4 id="1、向量的范数"><a href="#1、向量的范数" class="headerlink" title="1、向量的范数"></a>1、向量的范数</h4><p>这里我直接以实例讲解。定义一个向量为：a=[-5, 6, 8, -10]<br><strong>向量的1范数</strong>：向量的各个元素的绝对值之和，上述向量a的1范数结果就是：29；<br><strong>向量的2范数</strong>：向量的每个元素的平方和再开平方根，上述a的2范数结果就是：15；<br><strong>向量的负无穷范数</strong>：向量的所有元素的绝对值中最小的。上述向量a的负无穷范数结果就是：5；<br><strong>向量的正无穷范数</strong>：向量的所有元素的绝对值中最大的。上述向量a的正无穷范数结果就是：10；</p>
-<h4 id="2、矩阵的范数"><a href="#2、矩阵的范数" class="headerlink" title="2、矩阵的范数"></a>2、矩阵的范数</h4><p>定义一个矩阵A=[-1 2 -3；4 -6 6]；<br><strong>矩阵的1范数</strong>：矩阵每一列上的元素绝对值先求和，再从中取最大值（列和最大）。上述矩阵A的1范数就是9；<br><strong>矩阵的2范数</strong>：矩阵$A^TA$的最大特征值开平方根，上述矩阵A的2范数就是：10.0623；<br><strong>矩阵的无穷范数</strong>：矩阵的每一行上的元素绝对值先求和，再从中取个最大的(行和最大)，上述矩阵的结果就是：16；<br><strong>矩阵的核范数</strong>：矩阵的奇异值之和(将矩阵SVD分解，文章后面会讲到)，这个范数可以用低秩表示（因为最小化核范数，相当于最小化矩阵的秩——低秩），上述矩阵A最终结果就是：10.9287；<br><strong>矩阵的L0范数</strong>：矩阵的非0元素的个数，通常用它来表示稀疏性，L0范数越小0元素越多，也就越稀疏，上述矩阵A的最终结果就是：6；<br><strong>矩阵的L1范数</strong>：矩阵中的每个元素绝对值之和，它是L0范数的最优凸近似，因此它也可以表示稀疏，上述矩阵A最终结果就是：22；<br><strong>矩阵的F范数</strong>：矩阵的各个元素平方之和再开平方根，它通常也叫做矩阵的L2范数。上述矩阵A的结果是：10</p>
-<h3 id="深入理解二范数"><a href="#深入理解二范数" class="headerlink" title="深入理解二范数"></a>深入理解二范数</h3><p>二范数相信大家在本科学线代的时候就已经被灌输了“<strong>用来度量向量长度</strong>”、“<strong>用来度量向量空间中两个点的距离</strong>”这两个典型意义。那么在机器学习中，二范数主要有什么重要的应用呢？</p>
+<h2 id="向量和矩阵的范数归纳"><a href="#向量和矩阵的范数归纳" class="headerlink" title="向量和矩阵的范数归纳"></a>向量和矩阵的范数归纳</h2><h3 id="1、向量的范数"><a href="#1、向量的范数" class="headerlink" title="1、向量的范数"></a>1、向量的范数</h3><p>这里我直接以实例讲解。定义一个向量为：a=[-5, 6, 8, -10]<br><strong>向量的1范数</strong>：向量的各个元素的绝对值之和，上述向量a的1范数结果就是：29；<br><strong>向量的2范数</strong>：向量的每个元素的平方和再开平方根，上述a的2范数结果就是：15；<br><strong>向量的负无穷范数</strong>：向量的所有元素的绝对值中最小的。上述向量a的负无穷范数结果就是：5；<br><strong>向量的正无穷范数</strong>：向量的所有元素的绝对值中最大的。上述向量a的正无穷范数结果就是：10；</p>
+<h3 id="2、矩阵的范数"><a href="#2、矩阵的范数" class="headerlink" title="2、矩阵的范数"></a>2、矩阵的范数</h3><p>定义一个矩阵A=[-1 2 -3；4 -6 6]；<br><strong>矩阵的1范数</strong>：矩阵每一列上的元素绝对值先求和，再从中取最大值（列和最大）。上述矩阵A的1范数就是9；<br><strong>矩阵的2范数</strong>：矩阵$A^TA$的最大特征值开平方根，上述矩阵A的2范数就是：10.0623；<br><strong>矩阵的无穷范数</strong>：矩阵的每一行上的元素绝对值先求和，再从中取个最大的(行和最大)，上述矩阵的结果就是：16；<br><strong>矩阵的核范数</strong>：矩阵的奇异值之和(将矩阵SVD分解，文章后面会讲到)，这个范数可以用低秩表示（因为最小化核范数，相当于最小化矩阵的秩——低秩），上述矩阵A最终结果就是：10.9287；<br><strong>矩阵的L0范数</strong>：矩阵的非0元素的个数，通常用它来表示稀疏性，L0范数越小0元素越多，也就越稀疏，上述矩阵A的最终结果就是：6；<br><strong>矩阵的L1范数</strong>：矩阵中的每个元素绝对值之和，它是L0范数的最优凸近似，因此它也可以表示稀疏，上述矩阵A最终结果就是：22；<br><strong>矩阵的F范数</strong>：矩阵的各个元素平方之和再开平方根，它通常也叫做矩阵的L2范数。上述矩阵A的结果是：10</p>
+<h2 id="深入理解二范数"><a href="#深入理解二范数" class="headerlink" title="深入理解二范数"></a>深入理解二范数</h2><p>二范数相信大家在本科学线代的时候就已经被灌输了“<strong>用来度量向量长度</strong>”、“<strong>用来度量向量空间中两个点的距离</strong>”这两个典型意义。那么在机器学习中，二范数主要有什么重要的应用呢？</p>
 <p>我们经常在机器学习的loss函数中加上<strong>参数的2范数项</strong>，以减少模型对训练集的过拟合，即提高模型的泛化能力。那么问题来了，为什么2范数可以提高模型的泛化能力呢？</p>
 <p>首先假设我们model的参数为向量W=[W1, W2, …, Wn], 这个w不仅是模型的参数，更是<strong>特征的权重！</strong>。换句话说，每个参数Wi，决定了每个特征对决定样本所属类别的重要程度。</p>
 <p>这里我们举一个实际例子，假设参数w的维度为5，有以下两种情况：</p>
@@ -600,7 +600,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#向量和矩阵的范数归纳"><span class="nav-number">1.1.</span> <span class="nav-text">向量和矩阵的范数归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、向量的范数"><span class="nav-number">1.1.1.</span> <span class="nav-text">1、向量的范数</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、矩阵的范数"><span class="nav-number">1.1.2.</span> <span class="nav-text">2、矩阵的范数</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#深入理解二范数"><span class="nav-number">1.2.</span> <span class="nav-text">深入理解二范数</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量和矩阵的范数归纳"><span class="nav-number">2.</span> <span class="nav-text">向量和矩阵的范数归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、向量的范数"><span class="nav-number">2.1.</span> <span class="nav-text">1、向量的范数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、矩阵的范数"><span class="nav-number">2.2.</span> <span class="nav-text">2、矩阵的范数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解二范数"><span class="nav-number">3.</span> <span class="nav-text">深入理解二范数</span></a></li></ol></div>
             
 
           </div>
