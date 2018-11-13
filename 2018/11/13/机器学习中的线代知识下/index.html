@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
+<meta name="description" content="前言在机器学习中的线性代数知识（上）/#more)一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习中的线性代数知识（下）">
 <meta property="og:url" content="http://yoursite.com/2018/11/13/机器学习中的线代知识下/index.html">
 <meta property="og:site_name" content="苦行僧">
-<meta property="og:description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
+<meta property="og:description" content="前言在机器学习中的线性代数知识（上）/#more)一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea957b82fb8.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/13/5bea96e31a0db.jpg">
-<meta property="og:updated_time" content="2018-11-13T11:07:35.648Z">
+<meta property="og:updated_time" content="2018-11-13T11:10:27.010Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习中的线性代数知识（下）">
-<meta name="twitter:description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
+<meta name="twitter:description" content="前言在机器学习中的线性代数知识（上）/#more)一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
 <meta name="twitter:image" content="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg">
 
 
@@ -378,7 +378,7 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="https://blog.csdn.net/wj5637606/article/details/83864546" target="_blank" rel="noopener">机器学习中的线性代数知识（上）</a>一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。<br><a id="more"></a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="https://wangjie-users.github.io/2018/11/08/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%E4%B8%AD%E7%9A%84%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%E7%9F%A5%E8%AF%86(%E4%B8%8A" target="_blank" rel="noopener">机器学习中的线性代数知识（上）</a>/#more)一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。<br><a id="more"></a></p>
 <h3 id="向量和矩阵的范数归纳"><a href="#向量和矩阵的范数归纳" class="headerlink" title="向量和矩阵的范数归纳"></a>向量和矩阵的范数归纳</h3><h4 id="1、向量的范数"><a href="#1、向量的范数" class="headerlink" title="1、向量的范数"></a>1、向量的范数</h4><p>这里我直接以实例讲解。定义一个向量为：a=[-5, 6, 8, -10]<br><strong>向量的1范数</strong>：向量的各个元素的绝对值之和，上述向量a的1范数结果就是：29；<br><strong>向量的2范数</strong>：向量的每个元素的平方和再开平方根，上述a的2范数结果就是：15；<br><strong>向量的负无穷范数</strong>：向量的所有元素的绝对值中最小的。上述向量a的负无穷范数结果就是：5；<br><strong>向量的正无穷范数</strong>：向量的所有元素的绝对值中最大的。上述向量a的正无穷范数结果就是：10；</p>
 <h4 id="2、矩阵的范数"><a href="#2、矩阵的范数" class="headerlink" title="2、矩阵的范数"></a>2、矩阵的范数</h4><p>定义一个矩阵A=[-1 2 -3；4 -6 6]；<br><strong>矩阵的1范数</strong>：矩阵每一列上的元素绝对值先求和，再从中取最大值（列和最大）。上述矩阵A的1范数就是9；<br><strong>矩阵的2范数</strong>：矩阵$A^TA$的最大特征值开平方根，上述矩阵A的2范数就是：10.0623；<br><strong>矩阵的无穷范数</strong>：矩阵的每一行上的元素绝对值先求和，再从中取个最大的(行和最大)，上述矩阵的结果就是：16；<br><strong>矩阵的核范数</strong>：矩阵的奇异值之和(将矩阵SVD分解，文章后面会讲到)，这个范数可以用低秩表示（因为最小化核范数，相当于最小化矩阵的秩——低秩），上述矩阵A最终结果就是：10.9287；<br><strong>矩阵的L0范数</strong>：矩阵的非0元素的个数，通常用它来表示稀疏性，L0范数越小0元素越多，也就越稀疏，上述矩阵A的最终结果就是：6；<br><strong>矩阵的L1范数</strong>：矩阵中的每个元素绝对值之和，它是L0范数的最优凸近似，因此它也可以表示稀疏，上述矩阵A最终结果就是：22；<br><strong>矩阵的F范数</strong>：矩阵的各个元素平方之和再开平方根，它通常也叫做矩阵的L2范数。上述矩阵A的结果是：10</p>
 <h3 id="深入理解二范数"><a href="#深入理解二范数" class="headerlink" title="深入理解二范数"></a>深入理解二范数</h3><p>二范数相信大家在本科学线代的时候就已经被灌输了“<strong>用来度量向量长度</strong>”、“<strong>用来度量向量空间中两个点的距离</strong>”这两个典型意义。那么在机器学习中，二范数主要有什么重要的应用呢？</p>
