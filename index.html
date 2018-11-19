@@ -377,28 +377,17 @@
 
       
         
-          
-            <p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。</p>
-<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="1、常用快捷键"><a href="#1、常用快捷键" class="headerlink" title="1、常用快捷键"></a>1、常用快捷键</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 告别手指抽筋的方向键</span><br><span class="line">   ctrl + e // 光标回到行末</span><br><span class="line">   ctrl + k // 删除光标处到行尾的字符</span><br><span class="line">   ctrl + u // 删除命令行的整段命令</span><br><span class="line">   ctrl + y // 恢复上一次删除内容</span><br></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// vim快捷键（命令行模式下使用）</span><br><span class="line">	gg: 将光标移动到文档开头</span><br><span class="line">	G:  将光标移动到文档末尾</span><br><span class="line">	$:  将光标移动到本行尾</span><br><span class="line">	<span class="number">0</span>:  将光标移动到本行行首</span><br><span class="line">	ndd: 删除n行(如<span class="number">10</span>+dd)</span><br></pre></td></tr></table></figure>
-<h3 id="2、文件夹操作"><a href="#2、文件夹操作" class="headerlink" title="2、文件夹操作"></a>2、文件夹操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pwd //显示当前路径</span><br><span class="line">ls //显示当前目录的内容</span><br><span class="line">ll //详细显示内容</span><br><span class="line">du -sh * //显示当前文件夹下所有内容的大小</span><br><span class="line">tar -xzvf //解压命令</span><br></pre></td></tr></table></figure>
-<p><img src="https://i.loli.net/2018/11/19/5bf2aeb5b874e.jpg" alt="说明"></p>
-<h3 id="3、复制、移动、重命名、删除"><a href="#3、复制、移动、重命名、删除" class="headerlink" title="3、复制、移动、重命名、删除"></a>3、复制、移动、重命名、删除</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cp source destination //将目标赋值到目的地</span><br><span class="line">mv source desination //将目标移动到目的地</span><br><span class="line">mv file1 file2 //将file1重名为file2</span><br><span class="line">rm //删除文件，慎用rm -f </span><br><span class="line">rm -r //删除文件夹</span><br></pre></td></tr></table></figure>
-<h3 id="4、查询、检索、统计"><a href="#4、查询、检索、统计" class="headerlink" title="4、查询、检索、统计"></a>4、查询、检索、统计</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">find . -name <span class="string">"*.py"</span> | wc -l //查看当前文件夹（包含子文件夹）下共有多少个py文件</span><br><span class="line">grep -o root a.txt | wc -l // 统计文件a.txt中root这个词出现的次数</span><br></pre></td></tr></table></figure>
-<h3 id="5、shell脚本、txt文件等的操作"><a href="#5、shell脚本、txt文件等的操作" class="headerlink" title="5、shell脚本、txt文件等的操作"></a>5、shell脚本、txt文件等的操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">chmod +x run.sh //更改shell脚本的权限</span><br><span class="line">./run.sh //运行shell脚本，也可用 sh run.sh</span><br><span class="line">cat test.txt //查看test.txt文件</span><br><span class="line">wc -l test.txt //显示test.txt文件有多少行</span><br></pre></td></tr></table></figure>
-<h2 id="进阶操作"><a href="#进阶操作" class="headerlink" title="进阶操作"></a>进阶操作</h2><h3 id="1、如何让代码在后台运行"><a href="#1、如何让代码在后台运行" class="headerlink" title="1、如何让代码在后台运行"></a>1、如何让代码在后台运行</h3><p>由于实验室的网络有时候不稳定，会导致跑了好几个小时的代码在快要出结果的时候断网了，导致与服务器的连接中断，从而代码也就停止运行了，这点着实让人很苦恼。同时，如果在跑代码的时候还想进行其它Linux操作，也可以考虑把代码放到服务器后台运行。这里主要有两种方法实现代码的后台运行。</p>
-<p><strong>第一种</strong><br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup python model.py &gt;log.txt <span class="number">2</span>&gt;&amp;<span class="number">1</span> &amp;    //将代码后台挂起运行，并将结果输出到log.txt中，<span class="number">2</span>&gt;&amp;<span class="number">1</span>表示若有错误也将一同输出到log.txt中</span><br></pre></td></tr></table></figure></p>
-<p><strong>第二种</strong><br>如果我想实时的观察到代码的运行状态，并不想最终运行完以后才能在日志文件中看。这时可以用<strong>screen</strong>这个命令。<br>可以简单的认为用这个命令你可以为不同的任务开不同的窗口，这个窗口之间是可以切换的，同时，窗口和你的会话连接基本上没有任何区别，这样你可以在开一个连接的时候同时干多件事情，并且在终端看得到运行过程的同时而不会由于断网而导致代码停止运行。常用命令如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">screen -S train_cnn //创建一个新窗口并命名为train_cnn</span><br></pre></td></tr></table></figure></p>
-<p>当你执行完上述命令后，就会自动跳入名为train_cnn的窗口中，在这个窗口里你可以开始跑代码。<br>然后通过快捷键<strong>ctrl + a + d</strong> 断开这个窗口的连接而回到会话界面，注意这里<strong>只是断开了窗口并未终止任务的运行。</strong></p>
-<p>可以通过上述命令开启多个窗口。可通过以下命令查看所有的窗口，并连接到其中一个窗口<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">screen -ls //显示所有窗口</span><br><span class="line">screen -r train_cnn //返回到train_cnn窗口下</span><br></pre></td></tr></table></figure></p>
-<p>如果要断开某个窗口，可直接使用快捷键 ctrl + d 退出即可。</p>
-<p>总结一下，screen可以实现代码在后台运行时的可视化，同时，能在开一个会话连接时创建多个窗口处理不同的任务。用起来也很方便。</p>
-<h3 id="2、服务器上jupyter-notebook的使用"><a href="#2、服务器上jupyter-notebook的使用" class="headerlink" title="2、服务器上jupyter notebook的使用"></a>2、服务器上jupyter notebook的使用</h3><p>在服务器上jupyter notebook也是经常需要使用到的。服务器下配置jupyter(已安装anaconda)可以参考<a href="https://blog.csdn.net/cvmat/article/details/79351420" target="_blank" rel="noopener">这篇文章</a>。</p>
-
-          
+          <p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2018/11/19/机器学习、深度学习中常用的Linux命令/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
-    </div>
+    </p></div>
     
     
     
