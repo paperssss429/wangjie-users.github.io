@@ -79,16 +79,19 @@
 
 
 
-<meta name="description" content="To watch the sunrise must wait till dawn.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="苦行僧">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。 基本操作1、常用快捷键12345// 告别手指抽筋的方向键   ctrl + e // 光标回到行末   ctrl + k // 删除光标处">
+<meta property="og:type" content="article">
+<meta property="og:title" content="机器学习、深度学习中常用的Linux命令">
+<meta property="og:url" content="http://yoursite.com/2018/11/19/机器学习、深度学习中常用的Linux命令/index.html">
 <meta property="og:site_name" content="苦行僧">
-<meta property="og:description" content="To watch the sunrise must wait till dawn.">
+<meta property="og:description" content="作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。 基本操作1、常用快捷键12345// 告别手指抽筋的方向键   ctrl + e // 光标回到行末   ctrl + k // 删除光标处">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://i.loli.net/2018/11/19/5bf2aeb5b874e.jpg">
+<meta property="og:updated_time" content="2018-11-19T14:45:17.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="苦行僧">
-<meta name="twitter:description" content="To watch the sunrise must wait till dawn.">
+<meta name="twitter:title" content="机器学习、深度学习中常用的Linux命令">
+<meta name="twitter:description" content="作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。 基本操作1、常用快捷键12345// 告别手指抽筋的方向键   ctrl + e // 光标回到行末   ctrl + k // 删除光标处">
+<meta name="twitter:image" content="https://i.loli.net/2018/11/19/5bf2aeb5b874e.jpg">
 
 
 
@@ -118,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/19/机器学习、深度学习中常用的Linux命令/">
 
 
 
 
 
-  <title>苦行僧</title>
+  <title>机器学习、深度学习中常用的Linux命令 | 苦行僧</title>
   
 
 
@@ -143,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 	<a href="https://github.com/wangjie-users"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png" alt="Fork me on GitHub"></a>
 
@@ -270,9 +272,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -302,9 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/19/机器学习、深度学习中常用的Linux命令/" itemprop="url">机器学习、深度学习中常用的Linux命令</a></h1>
+          <h1 class="post-title" itemprop="name headline">机器学习、深度学习中常用的Linux命令</h1>
         
 
         <div class="post-meta">
@@ -376,9 +376,7 @@
       
 
       
-        
-          
-            <p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。</p>
+        <p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。</p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="1、常用快捷键"><a href="#1、常用快捷键" class="headerlink" title="1、常用快捷键"></a>1、常用快捷键</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 告别手指抽筋的方向键</span><br><span class="line">   ctrl + e // 光标回到行末</span><br><span class="line">   ctrl + k // 删除光标处到行尾的字符</span><br><span class="line">   ctrl + u // 删除命令行的整段命令</span><br><span class="line">   ctrl + y // 恢复上一次删除内容</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// vim快捷键（命令行模式下使用）</span><br><span class="line">	gg: 将光标移动到文档开头</span><br><span class="line">	G:  将光标移动到文档末尾</span><br><span class="line">	$:  将光标移动到本行尾</span><br><span class="line">	<span class="number">0</span>:  将光标移动到本行行首</span><br><span class="line">	ndd: 删除n行(如<span class="number">10</span>+dd)</span><br></pre></td></tr></table></figure>
 <h3 id="2、文件夹操作"><a href="#2、文件夹操作" class="headerlink" title="2、文件夹操作"></a>2、文件夹操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pwd //显示当前路径</span><br><span class="line">ls //显示当前目录的内容</span><br><span class="line">ll //详细显示内容</span><br><span class="line">du -sh * //显示当前文件夹下所有内容的大小</span><br><span class="line">tar -xzvf //解压命令</span><br></pre></td></tr></table></figure>
@@ -395,8 +393,6 @@
 <p>总结一下，screen可以实现代码在后台运行时的可视化，同时，能在开一个会话连接时创建多个窗口处理不同的任务。用起来也很方便。</p>
 <h3 id="2、服务器上jupyter-notebook的使用"><a href="#2、服务器上jupyter-notebook的使用" class="headerlink" title="2、服务器上jupyter notebook的使用"></a>2、服务器上jupyter notebook的使用</h3><p>在服务器上jupyter notebook也是经常需要使用到的。服务器下配置jupyter(已安装anaconda)可以参考<a href="https://blog.csdn.net/cvmat/article/details/79351420" target="_blank" rel="noopener">这篇文章</a>。</p>
 
-          
-        
       
     </div>
     
@@ -406,6 +402,30 @@
     
 
     
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>如果您觉得这篇文章对您有帮助，就支持我一下咯，感谢！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/zanshangma.jpg" alt="Jack_Wang 微信支付">
+        <p>微信支付</p>
+      </div>
+    
+
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
 
     
 
@@ -413,158 +433,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/机器学习中的线性代数知识（中）/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jack_Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/wj.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="苦行僧">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/13/机器学习中的线性代数知识（中）/" itemprop="url">机器学习中的线性代数知识（中）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T19:02:42+08:00">
-                2018-11-13
-              </time>
+              <a href="/2018/11/13/机器学习中的线性代数知识（中）/" rel="next" title="机器学习中的线性代数知识（中）">
+                <i class="fa fa-chevron-left"></i> 机器学习中的线性代数知识（中）
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="https://blog.csdn.net/wj5637606/article/details/83864546" target="_blank" rel="noopener">机器学习中的线性代数知识（上）</a>一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/13/机器学习中的线性代数知识（中）/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -574,302 +464,11 @@
   </article>
 
 
-    
+
+    <div class="post-spread">
       
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/08/机器学习中的线性代数知识(上)/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jack_Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/wj.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="苦行僧">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/08/机器学习中的线性代数知识(上)/" itemprop="url">机器学习中的线性代数知识（上）</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-08T23:43:22+08:00">
-                2018-11-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>As we all know, 线性代数对于机器学习的重要性不言而喻。但纵观国内的教材和课程，大部分线性代数的讲解，一上来就堆满了各种定义和公式，从而导致我们知其然而不知其所以然，不利于我们深入理解机器学习的算法。<br>因此，希望本篇博文能帮大家从另一个角度理解线性代数。但是注意，阅读本篇博文，<strong>最好已经有了线性代数的基础</strong>，比如要知道矩阵的形式，矩阵怎么相乘之类的基础知识。然后如果你虽然知道矩阵相乘怎么算，却并不知道它们有什么物理含义，那么相信本篇博文会让您有所收获。本系列博文分为上下两篇，上篇主要讲矩阵的本质，下篇主要讲向量的范数和矩阵分解。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/08/机器学习中的线性代数知识(上)/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
+    </div>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/06/机器学习中的评价指标/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jack_Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/wj.JPG">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="苦行僧">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/11/06/机器学习中的评价指标/" itemprop="url">机器学习算法的评价指标</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-06T19:13:47+08:00">
-                2018-11-06
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/机器学习/" itemprop="url" rel="index">
-                    <span itemprop="name">机器学习</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>机器学习的目标是使得我们模型的泛化能力足够强，因此我们需要有衡量模型泛化能力的评价标准。对不同种类的机器学习问题，评价标准不一样。回归问题常用均方误差(MSE)、绝对误差(MAE)等评价指标，分类问题评价指标则较多，如下图所示。本文主要讲解分类问题的评价指标。
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/11/06/机器学习中的评价指标/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </p></div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -877,6 +476,15 @@
 
 
           
+
+  
+    <div class="comments" id="comments">
+      <div id="lv-container" data-id="city" data-uid="MTAyMC80MDgzNS8xNzM2MA=="></div>
+    </div>
+
+  
+
+
 
         </div>
         
@@ -897,8 +505,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
@@ -967,6 +584,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、常用快捷键"><span class="nav-number">1.1.</span> <span class="nav-text">1、常用快捷键</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、文件夹操作"><span class="nav-number">1.2.</span> <span class="nav-text">2、文件夹操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3、复制、移动、重命名、删除"><span class="nav-number">1.3.</span> <span class="nav-text">3、复制、移动、重命名、删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4、查询、检索、统计"><span class="nav-number">1.4.</span> <span class="nav-text">4、查询、检索、统计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5、shell脚本、txt文件等的操作"><span class="nav-number">1.5.</span> <span class="nav-text">5、shell脚本、txt文件等的操作</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#进阶操作"><span class="nav-number">2.</span> <span class="nav-text">进阶操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、如何让代码在后台运行"><span class="nav-number">2.1.</span> <span class="nav-text">1、如何让代码在后台运行</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、服务器上jupyter-notebook的使用"><span class="nav-number">2.2.</span> <span class="nav-text">2、服务器上jupyter notebook的使用</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1100,6 +733,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
@@ -1128,6 +765,17 @@
 
 
 
+  
+    <script type="text/javascript">
+      (function(d, s) {
+        var j, e = d.getElementsByTagName(s)[0];
+        if (typeof LivereTower === 'function') { return; }
+        j = d.createElement(s);
+        j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+        j.async = true;
+        e.parentNode.insertBefore(j, e);
+      })(document, 'script');
+    </script>
   
 
 
