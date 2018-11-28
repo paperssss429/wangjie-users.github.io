@@ -79,21 +79,24 @@
 
 
 
-<meta name="description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
+<meta name="description" content="前言说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="机器学习中的线性代数知识（中）">
-<meta property="og:url" content="http://yoursite.com/2018/11/13/机器学习中的线性代数知识（中）/index.html">
+<meta property="og:title" content="深入理解L1、L2范数">
+<meta property="og:url" content="http://yoursite.com/2018/11/28/深入理解L1、L2范数/index.html">
 <meta property="og:site_name" content="苦行僧">
-<meta property="og:description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
+<meta property="og:description" content="前言说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg">
-<meta property="og:image" content="https://i.loli.net/2018/11/13/5bea957b82fb8.jpg">
-<meta property="og:image" content="https://i.loli.net/2018/11/13/5bea96e31a0db.jpg">
-<meta property="og:updated_time" content="2018-11-13T14:01:49.224Z">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfe8500499ce.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfe89e366bba.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfe943157035.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0696e884.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg">
+<meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea159caee5.jpg">
+<meta property="og:updated_time" content="2018-11-28T14:21:23.610Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="机器学习中的线性代数知识（中）">
-<meta name="twitter:description" content="前言在机器学习中的线性代数知识（上）一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。">
-<meta name="twitter:image" content="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg">
+<meta name="twitter:title" content="深入理解L1、L2范数">
+<meta name="twitter:description" content="前言说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。">
+<meta name="twitter:image" content="https://i.loli.net/2018/11/28/5bfe8500499ce.jpg">
 
 
 
@@ -123,13 +126,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/11/13/机器学习中的线性代数知识（中）/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/28/深入理解L1、L2范数/">
 
 
 
 
 
-  <title>机器学习中的线性代数知识（中） | 苦行僧</title>
+  <title>深入理解L1、L2范数 | 苦行僧</title>
   
 
 
@@ -289,7 +292,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/13/机器学习中的线性代数知识（中）/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/28/深入理解L1、L2范数/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Jack_Wang">
@@ -306,7 +309,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">机器学习中的线性代数知识（中）</h1>
+          <h1 class="post-title" itemprop="name headline">深入理解L1、L2范数</h1>
         
 
         <div class="post-meta">
@@ -318,8 +321,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-13T19:02:42+08:00">
-                2018-11-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-28T22:20:09+08:00">
+                2018-11-28
               </time>
             
 
@@ -378,26 +381,17 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>在<a href="https://blog.csdn.net/wj5637606/article/details/83864546" target="_blank" rel="noopener">机器学习中的线性代数知识（上）</a>一文中，主要讲解了矩阵的本质，以及映射视角下的特征值与特征向量的物理意义。本篇博文将继续讨论相关知识。<br><a id="more"></a></p>
-<h2 id="向量和矩阵的范数归纳"><a href="#向量和矩阵的范数归纳" class="headerlink" title="向量和矩阵的范数归纳"></a>向量和矩阵的范数归纳</h2><h3 id="1、向量的范数"><a href="#1、向量的范数" class="headerlink" title="1、向量的范数"></a>1、向量的范数</h3><p>这里我直接以实例讲解。定义一个向量为：a=[-5, 6, 8, -10]<br><strong>向量的1范数</strong>：向量的各个元素的绝对值之和，上述向量a的1范数结果就是：29；<br><strong>向量的2范数</strong>：向量的每个元素的平方和再开平方根，上述a的2范数结果就是：15；<br><strong>向量的负无穷范数</strong>：向量的所有元素的绝对值中最小的。上述向量a的负无穷范数结果就是：5；<br><strong>向量的正无穷范数</strong>：向量的所有元素的绝对值中最大的。上述向量a的正无穷范数结果就是：10；</p>
-<h3 id="2、矩阵的范数"><a href="#2、矩阵的范数" class="headerlink" title="2、矩阵的范数"></a>2、矩阵的范数</h3><p>定义一个矩阵A=[-1 2 -3；4 -6 6]；<br><strong>矩阵的1范数</strong>：矩阵每一列上的元素绝对值先求和，再从中取最大值（列和最大）。上述矩阵A的1范数就是9；<br><strong>矩阵的2范数</strong>：矩阵$A^TA$的最大特征值开平方根，上述矩阵A的2范数就是：10.0623；<br><strong>矩阵的无穷范数</strong>：矩阵的每一行上的元素绝对值先求和，再从中取个最大的(行和最大)，上述矩阵的结果就是：16；<br><strong>矩阵的核范数</strong>：矩阵的奇异值之和(将矩阵SVD分解，文章后面会讲到)，这个范数可以用低秩表示（因为最小化核范数，相当于最小化矩阵的秩——低秩），上述矩阵A最终结果就是：10.9287；<br><strong>矩阵的L0范数</strong>：矩阵的非0元素的个数，通常用它来表示稀疏性，L0范数越小0元素越多，也就越稀疏，上述矩阵A的最终结果就是：6；<br><strong>矩阵的L1范数</strong>：矩阵中的每个元素绝对值之和，它是L0范数的最优凸近似，因此它也可以表示稀疏，上述矩阵A最终结果就是：22；<br><strong>矩阵的F范数</strong>：矩阵的各个元素平方之和再开平方根，它通常也叫做矩阵的L2范数。上述矩阵A的结果是：10</p>
-<h2 id="深入理解二范数"><a href="#深入理解二范数" class="headerlink" title="深入理解二范数"></a>深入理解二范数</h2><p>二范数相信大家在本科学线代的时候就已经被灌输了“<strong>用来度量向量长度</strong>”、“<strong>用来度量向量空间中两个点的距离</strong>”这两个典型意义。那么在机器学习中，二范数主要有什么重要的应用呢？</p>
-<p>我们经常在机器学习的loss函数中加上<strong>参数的2范数项</strong>，以减少模型对训练集的过拟合，即提高模型的泛化能力。那么问题来了，为什么2范数可以提高模型的泛化能力呢？</p>
-<p>首先假设我们model的参数为向量W=[W1, W2, …, Wn], 这个w不仅是模型的参数，更是<strong>特征的权重！</strong>。换句话说，每个参数Wi，决定了每个特征对决定样本所属类别的重要程度。</p>
-<p>这里我们举一个实际例子，假设参数w的维度为5，有以下两种情况：</p>
-<ol>
-<li>令W1=W2=W3=W4=W5=2</li>
-<li>令W1=10, W2=W3=W4=W5=0</li>
-</ol>
-<p>由二范数公式：<br><img src="https://i.loli.net/2018/11/13/5bea8df4dfd3b.jpg" alt="二范数"><br>1和2相比，哪个的Reg更小呢？显然前者的值只有20，而后者的值高达100！虽然1和2的所有w的值加起来都等于10。而我们的目标是最小化loss函数，因此需要Reg也要小。由这个例子可以看出，如果我们有10张用于决定类别的票分给各个特征，那么给每个特征分两张票带来的回报要远大于把这10张票分给一个特征！（不患寡而患不均），因此<strong>二范数会削弱强特征，增强弱特征。</strong>（有点儿劫富济贫的意思）</p>
-<p>那么这种方式有什么好处呢？</p>
-<p>比如，假设我们在做文本的情感分类任务（判断一段文本是正面还是负面），将每个词作为一个特征（出现该词代表1，否则为0）。可想而知，有一些词本身就带有很强的情感极性，比如“不好”、“惊喜”等。而大部分词是弱极性的，但是多个弱极性的词同时出现的时候就会产生很强的情感极性。比如“总体”“来说”“还是”“可以”在文本中同时出现后基本就奠定了这篇文本的总体极性是正面的，哪怕文本中出现了“很烂”这种强负面词。</p>
-<p>因此在二范数的约束下，w这个随机变量的分布会<strong>趋向于方差u=0的高斯分布。</strong><br><img src="https://i.loli.net/2018/11/13/5bea957b82fb8.jpg" alt="高斯分布.jpg"><br>当然，既然是高斯分布，有极少的特征值是特别大的，这些特征就是超强特征，比如“非常好”这个特征一旦出现，基本整个文本的情感极性就确定了，其它的弱特征是很难与之对抗的。所以<strong>最小化二范数会让随机变量的采样点组成的向量趋向于期望=0的高斯分布。</strong></p>
-<p>所以，如果没有二范数的约束，弱特征会被强特征“剥削”，最终训练完后各个特征的权重很有可能是这样的：<br><img src="https://i.loli.net/2018/11/13/5bea96e31a0db.jpg" alt="高斯分布2"><br>这样会带来什么问题呢？<strong>导致模型过分依赖强特征。</strong></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。<br><a id="more"></a></p>
+<h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><p><strong>L1和L2的作用如下</strong>：</p>
 <ul>
-<li>首先，这样的model拿到测试集上，一旦某个样本没有任何强特征，就会导致这个样本的分类很随机。而如果有了二范数的约束，弱特征们就会发挥它们的作用。</li>
-<li>其次，这样的<strong>model抗噪声能力非常差。</strong>一旦测试集中的某个样本出现了一个强特征，就会直接导致其进行分类，而完全不考虑其它弱特征的存在。而如果有了二范数的约束，弱特征们就会聚沙成塔，合力打倒那个强特征的噪声。<br><strong><font size="3">那么是不是所有的ML任务加上二范数约束就一定好呢？</font></strong><br>答案当然是否定的。在一些ML任务中，尤其是一些结构化数据挖掘任务和特征意义模糊的机器学习任务（比如深度学习）中，特征分布本来就是若干强特征与噪声的组合，这时加上2范数约束反而会引入噪声，降低系统的抗噪性能，导致model的泛化能力更差。<br>因此，使用二范数去提高机器学习model的泛化能力大部分情况下是没错的，但是也不要无脑使用哦，懂得意义后学会根据任务去感性与理性的分析才是正解。这里有一篇分析<a href="https://blog.csdn.net/jinping_shi/article/details/52433975" target="_blank" rel="noopener">机器学习中正则化项L1和L2的直观理解</a>，大家可以借鉴阅读。</li>
+<li>L1正则化可以产生稀疏权值矩阵，即产生一个稀疏模型，可以用于特征选择；一定程度上可以防止过拟合</li>
+<li>L2正则化可以防止模型过拟合<h2 id="理解L1范数"><a href="#理解L1范数" class="headerlink" title="理解L1范数"></a>理解L1范数</h2>理解L1，主要需要理解两个问题。第一是L1产生稀疏矩阵的作用，第二是为什么L1可以产生稀疏模型。<h3 id="稀疏模型与特征选择"><a href="#稀疏模型与特征选择" class="headerlink" title="稀疏模型与特征选择"></a>稀疏模型与特征选择</h3>稀疏矩阵指的是很多元素为0、只有少数元素是非零值的矩阵。以线性回归为例，即得到的线性回归模型的大部分系数都是0，这表示只有少数特征对这个模型有贡献，从而实现了特征选择。总而言之，稀疏模型有助于进行特征选择。<h3 id="为什么L1正则化能产生稀疏模型？"><a href="#为什么L1正则化能产生稀疏模型？" class="headerlink" title="为什么L1正则化能产生稀疏模型？"></a>为什么L1正则化能产生稀疏模型？</h3>这部分重点讨论为什么L1可以产生稀疏模型，即L1是怎么让系数等于0的。首先要从目标函数讲起，假设带有L1正则化的损失函数如下：<br><img src="https://i.loli.net/2018/11/28/5bfe8500499ce.jpg" alt="目标函数.jpg"><br>其中J<sub>0</sub>是损失函数，后边是L1正则化项，$\alpha$是正则化系数，$\omega$是模型的参数。现在我们的目标是求解argmin<sub>$\omega$</sub>(J)，换句话说，我们的任务是<strong>在L1的约束下求出J<sub>0</sub>取最小值的解</strong>。假设只考虑二维的情况，即只有两个权值$\omega$<sup>1</sup>和$\omega$<sup>2</sup>，此时的L1正则化公式即为：L1 = |$\omega$<sup>1</sup>| + |$\omega$<sup>2</sup>|。对J使用梯度下降法求解，则求解J<sub>0</sub>的过程可以画出等值线，同时L<sub>1</sub>正则化的函数也可以在二维平面上画出来。如下图：<br><img src="https://i.loli.net/2018/11/28/5bfe89e366bba.jpg" alt="L1正则化.jpg"><br>图1 L1正则化</li>
 </ul>
+<p>图中等值线是J<sub>0</sub>的等值线，黑色方形是L<sub>1</sub>函数的图形，J<sub>0</sub>等值线与L<sub>1</sub>图形首次相交的地方就是最优解，我们很容易发现<strong>黑色方形必然首先与等值线相交于方形顶点处</strong>。可以直观想象，因为L<sub>1</sub>函数有很多”<strong>突出的角</strong>“（二维情况下有四个，多维情况下更多），J<sub>0</sub>与这些角接触的概率远大于与其它部分接触的概率。而这些点某些维度为0（以上图为例，交点处$\omega$<sup>1</sup>为0），从而会使部分特征等于0，产生稀疏模型，进而可以用于特征选择。</p>
+<h2 id="理解L2范数"><a href="#理解L2范数" class="headerlink" title="理解L2范数"></a>理解L2范数</h2><h3 id="为什么L2范数可以防止过拟合呢？"><a href="#为什么L2范数可以防止过拟合呢？" class="headerlink" title="为什么L2范数可以防止过拟合呢？"></a>为什么L2范数可以防止过拟合呢？</h3><p>要想知道L2范数为什么可以防止过拟合，首先就要知道什么是过拟合。通俗讲，过拟合是指模型参数较大，模型过于复杂，模型抗扰动能力弱。只要测试数据偏移一点点，就会对结果造成很大的影响。因此，要防止过拟合，其中一种方法就是让参数尽可能的小一些。同L1范数分析一样，我们做出图像，如下图所示：<br><img src="https://i.loli.net/2018/11/28/5bfe943157035.jpg" alt="L2正则化.jpg"><br>图2   L2正则化<br>二维平面下L2正则化的函数图形是个圆，与方形相比，没有突出的棱角。因此交点在坐标轴的概率很低，即使得$\omega$<sup>1</sup>或$\omega$<sup>2</sup>等于零的概率小了许多。由上图可知，<strong>L2中得到的两个权值倾向于均为非零的较小数。</strong> 这也就是<strong>L1稀疏、L2平滑</strong>的原因。</p>
+<p>下面我从公式的角度解释一下，<strong>为什么L2正则化可以获得值很小的参数？</strong></p>
+<p>以线性回归中的梯度下降法为例。假设要求的参数为$\theta$, h<sub>$\theta$</sub>(x)是我们的model，那么LR的损失函数如下：<img src="https://i.loli.net/2018/11/28/5bfea0696e884.jpg" alt="损失函数.jpg"><br>那么在梯度下降法中，最终用于迭代计算参数$\theta$的迭代式为：<br><img src="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg" alt="迭代式.jpg"><br>当对损失函数加上L2正则化以后，迭代公式会变成下面的样子:<br><img src="https://i.loli.net/2018/11/28/5bfea159caee5.jpg" alt="迭代式.jpg"><br>从上式可以看出，与未添加L2正则化的迭代公式相比，每一次迭代，$\theta$<sub>j</sub>都要乘以一个小于1的因子，从而使得$\theta$<sub>j</sub>不断减小，因此总的来看，$\theta$是不断减小的。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>L1会趋向于产生少量的特征，而其它特征都是0。L2会选择更多的特征，这些特征都会趋近于0。L1在特征选择时非常有用，而L2只是一种防止过拟合的方法。在所有特征中只有少数特征起重要作用的情况下，选择L1范数比较合适，因为它能自动选择特征。而如果所有特征中，大部分特征都能起作用，而且起的作用很平均，那么使用L2范数也许更合适。</p>
 
       
     </div>
@@ -446,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/11/08/机器学习中的线性代数知识(上)/" rel="next" title="机器学习中的线性代数知识（上）">
-                <i class="fa fa-chevron-left"></i> 机器学习中的线性代数知识（上）
+              <a href="/2018/11/19/机器学习、深度学习中常用的Linux命令/" rel="next" title="机器学习、深度学习中常用的Linux命令">
+                <i class="fa fa-chevron-left"></i> 机器学习、深度学习中常用的Linux命令
               </a>
             
           </div>
@@ -455,10 +449,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/11/19/机器学习、深度学习中常用的Linux命令/" rel="prev" title="机器学习、深度学习中常用的Linux命令">
-                机器学习、深度学习中常用的Linux命令 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -604,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#向量和矩阵的范数归纳"><span class="nav-number">2.</span> <span class="nav-text">向量和矩阵的范数归纳</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1、向量的范数"><span class="nav-number">2.1.</span> <span class="nav-text">1、向量的范数</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2、矩阵的范数"><span class="nav-number">2.2.</span> <span class="nav-text">2、矩阵的范数</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#深入理解二范数"><span class="nav-number">3.</span> <span class="nav-text">深入理解二范数</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前言"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#先说结论"><span class="nav-number">2.</span> <span class="nav-text">先说结论</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解L1范数"><span class="nav-number">3.</span> <span class="nav-text">理解L1范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#稀疏模型与特征选择"><span class="nav-number">3.1.</span> <span class="nav-text">稀疏模型与特征选择</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么L1正则化能产生稀疏模型？"><span class="nav-number">3.2.</span> <span class="nav-text">为什么L1正则化能产生稀疏模型？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#理解L2范数"><span class="nav-number">4.</span> <span class="nav-text">理解L2范数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#为什么L2范数可以防止过拟合呢？"><span class="nav-number">4.1.</span> <span class="nav-text">为什么L2范数可以防止过拟合呢？</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
             
 
           </div>
