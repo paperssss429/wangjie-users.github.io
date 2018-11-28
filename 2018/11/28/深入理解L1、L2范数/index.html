@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0696e884.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea159caee5.jpg">
-<meta property="og:updated_time" content="2018-11-28T14:21:23.610Z">
+<meta property="og:updated_time" content="2018-11-28T14:25:21.124Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解L1、L2范数">
 <meta name="twitter:description" content="前言说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。">
@@ -390,7 +390,7 @@
 <p>图中等值线是J<sub>0</sub>的等值线，黑色方形是L<sub>1</sub>函数的图形，J<sub>0</sub>等值线与L<sub>1</sub>图形首次相交的地方就是最优解，我们很容易发现<strong>黑色方形必然首先与等值线相交于方形顶点处</strong>。可以直观想象，因为L<sub>1</sub>函数有很多”<strong>突出的角</strong>“（二维情况下有四个，多维情况下更多），J<sub>0</sub>与这些角接触的概率远大于与其它部分接触的概率。而这些点某些维度为0（以上图为例，交点处$\omega$<sup>1</sup>为0），从而会使部分特征等于0，产生稀疏模型，进而可以用于特征选择。</p>
 <h2 id="理解L2范数"><a href="#理解L2范数" class="headerlink" title="理解L2范数"></a>理解L2范数</h2><h3 id="为什么L2范数可以防止过拟合呢？"><a href="#为什么L2范数可以防止过拟合呢？" class="headerlink" title="为什么L2范数可以防止过拟合呢？"></a>为什么L2范数可以防止过拟合呢？</h3><p>要想知道L2范数为什么可以防止过拟合，首先就要知道什么是过拟合。通俗讲，过拟合是指模型参数较大，模型过于复杂，模型抗扰动能力弱。只要测试数据偏移一点点，就会对结果造成很大的影响。因此，要防止过拟合，其中一种方法就是让参数尽可能的小一些。同L1范数分析一样，我们做出图像，如下图所示：<br><img src="https://i.loli.net/2018/11/28/5bfe943157035.jpg" alt="L2正则化.jpg"><br>图2   L2正则化<br>二维平面下L2正则化的函数图形是个圆，与方形相比，没有突出的棱角。因此交点在坐标轴的概率很低，即使得$\omega$<sup>1</sup>或$\omega$<sup>2</sup>等于零的概率小了许多。由上图可知，<strong>L2中得到的两个权值倾向于均为非零的较小数。</strong> 这也就是<strong>L1稀疏、L2平滑</strong>的原因。</p>
 <p>下面我从公式的角度解释一下，<strong>为什么L2正则化可以获得值很小的参数？</strong></p>
-<p>以线性回归中的梯度下降法为例。假设要求的参数为$\theta$, h<sub>$\theta$</sub>(x)是我们的model，那么LR的损失函数如下：<img src="https://i.loli.net/2018/11/28/5bfea0696e884.jpg" alt="损失函数.jpg"><br>那么在梯度下降法中，最终用于迭代计算参数$\theta$的迭代式为：<br><img src="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg" alt="迭代式.jpg"><br>当对损失函数加上L2正则化以后，迭代公式会变成下面的样子:<br><img src="https://i.loli.net/2018/11/28/5bfea159caee5.jpg" alt="迭代式.jpg"><br>从上式可以看出，与未添加L2正则化的迭代公式相比，每一次迭代，$\theta$<sub>j</sub>都要乘以一个小于1的因子，从而使得$\theta$<sub>j</sub>不断减小，因此总的来看，$\theta$是不断减小的。</p>
+<p>以线性回归中的梯度下降法为例。假设要求的参数为\theta, h<sub>$\theta$</sub>(x)是我们的model，那么LR的损失函数如下：<img src="https://i.loli.net/2018/11/28/5bfea0696e884.jpg" alt="损失函数.jpg"><br>那么在梯度下降法中，最终用于迭代计算参数$\theta$的迭代式为：<br><img src="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg" alt="迭代式.jpg"><br>当对损失函数加上L2正则化以后，迭代公式会变成下面的样子:<br><img src="https://i.loli.net/2018/11/28/5bfea159caee5.jpg" alt="迭代式.jpg"><br>从上式可以看出，与未添加L2正则化的迭代公式相比，每一次迭代，$\theta$<sub>j</sub>都要乘以一个小于1的因子，从而使得$\theta$<sub>j</sub>不断减小，因此总的来看，$\theta$是不断减小的。</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>L1会趋向于产生少量的特征，而其它特征都是0。L2会选择更多的特征，这些特征都会趋近于0。L1在特征选择时非常有用，而L2只是一种防止过拟合的方法。在所有特征中只有少数特征起重要作用的情况下，选择L1范数比较合适，因为它能自动选择特征。而如果所有特征中，大部分特征都能起作用，而且起的作用很平均，那么使用L2范数也许更合适。</p>
 
       
