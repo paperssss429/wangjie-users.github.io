@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因">
+<meta name="description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过）。因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习、深度学习中常用的Linux命令">
 <meta property="og:url" content="http://yoursite.com/2018/11/19/机器学习、深度学习中常用的Linux命令/index.html">
 <meta property="og:site_name" content="苦行僧">
-<meta property="og:description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因">
+<meta property="og:description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过）。因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="https://i.loli.net/2018/11/19/5bf2aeb5b874e.jpg">
-<meta property="og:updated_time" content="2018-11-20T02:26:23.133Z">
+<meta property="og:updated_time" content="2018-12-17T12:29:15.819Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="机器学习、深度学习中常用的Linux命令">
-<meta name="twitter:description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因">
+<meta name="twitter:description" content="前言作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过）。因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。">
 <meta name="twitter:image" content="https://i.loli.net/2018/11/19/5bf2aeb5b874e.jpg">
 
 
@@ -376,7 +376,7 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过…），因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。<br><a id="more"></a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>作为一名coder，Linux命令是基本生存技能，但Linux的命令何其多，要想完全掌握可不易。。。在我平常的学习和工作中，Linux服务器主要是用来跑ML、DL代码的（Linux运维大神请略过）。因此本文将主要从跑代码的角度浅谈一下常用的Linux操作。<br><a id="more"></a></p>
 <h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="1、常用快捷键"><a href="#1、常用快捷键" class="headerlink" title="1、常用快捷键"></a>1、常用快捷键</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// 告别手指抽筋的方向键</span><br><span class="line">   ctrl + e // 光标回到行末</span><br><span class="line">   ctrl + k // 删除光标处到行尾的字符</span><br><span class="line">   ctrl + u // 删除命令行的整段命令</span><br><span class="line">   ctrl + y // 恢复上一次删除内容</span><br></pre></td></tr></table></figure>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">// vim快捷键（命令行模式下使用）</span><br><span class="line">	gg: 将光标移动到文档开头</span><br><span class="line">	G:  将光标移动到文档末尾</span><br><span class="line">	$:  将光标移动到本行尾</span><br><span class="line">	<span class="number">0</span>:  将光标移动到本行行首</span><br><span class="line">	ndd: 删除n行(如<span class="number">10</span>+dd)</span><br></pre></td></tr></table></figure>
 <h3 id="2、文件夹操作"><a href="#2、文件夹操作" class="headerlink" title="2、文件夹操作"></a>2、文件夹操作</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pwd //显示当前路径</span><br><span class="line">ls //显示当前目录的内容</span><br><span class="line">ll //详细显示内容</span><br><span class="line">du -sh * //显示当前文件夹下所有内容的大小</span><br><span class="line">tar -xzvf //解压命令</span><br></pre></td></tr></table></figure>

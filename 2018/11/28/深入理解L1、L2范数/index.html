@@ -92,7 +92,7 @@
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0696e884.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea0bb6ce2d.jpg">
 <meta property="og:image" content="https://i.loli.net/2018/11/28/5bfea159caee5.jpg">
-<meta property="og:updated_time" content="2018-11-28T14:25:21.124Z">
+<meta property="og:updated_time" content="2018-11-29T03:09:57.343Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="深入理解L1、L2范数">
 <meta name="twitter:description" content="前言说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。">
@@ -381,12 +381,15 @@
       
 
       
-        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。<br><a id="more"></a></p>
+        <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>说起L1、L2范数，大家会立马想到这是机器学习中常用的正则化方法，一般添加在损失函数后面，可以看作是损失函数的惩罚项。那添加L1和L2正则化后到底有什么具体作用呢？为什么会产生这样的作用？本篇博文将和大家一起去探讨L1范数、L2范数背后的原理。<br><a id="more"></a>（ps: 文中部分符号未编译出来，大家可移驾<a href="https://blog.csdn.net/wj5637606/article/details/84582966" target="_blank" rel="noopener">csdn</a>上观看此文）</p>
 <h2 id="先说结论"><a href="#先说结论" class="headerlink" title="先说结论"></a>先说结论</h2><p><strong>L1和L2的作用如下</strong>：</p>
 <ul>
 <li>L1正则化可以产生稀疏权值矩阵，即产生一个稀疏模型，可以用于特征选择；一定程度上可以防止过拟合</li>
-<li>L2正则化可以防止模型过拟合<h2 id="理解L1范数"><a href="#理解L1范数" class="headerlink" title="理解L1范数"></a>理解L1范数</h2>理解L1，主要需要理解两个问题。第一是L1产生稀疏矩阵的作用，第二是为什么L1可以产生稀疏模型。<h3 id="稀疏模型与特征选择"><a href="#稀疏模型与特征选择" class="headerlink" title="稀疏模型与特征选择"></a>稀疏模型与特征选择</h3>稀疏矩阵指的是很多元素为0、只有少数元素是非零值的矩阵。以线性回归为例，即得到的线性回归模型的大部分系数都是0，这表示只有少数特征对这个模型有贡献，从而实现了特征选择。总而言之，稀疏模型有助于进行特征选择。<h3 id="为什么L1正则化能产生稀疏模型？"><a href="#为什么L1正则化能产生稀疏模型？" class="headerlink" title="为什么L1正则化能产生稀疏模型？"></a>为什么L1正则化能产生稀疏模型？</h3>这部分重点讨论为什么L1可以产生稀疏模型，即L1是怎么让系数等于0的。首先要从目标函数讲起，假设带有L1正则化的损失函数如下：<br><img src="https://i.loli.net/2018/11/28/5bfe8500499ce.jpg" alt="目标函数.jpg"><br>其中J<sub>0</sub>是损失函数，后边是L1正则化项，$\alpha$是正则化系数，$\omega$是模型的参数。现在我们的目标是求解argmin<sub>$\omega$</sub>(J)，换句话说，我们的任务是<strong>在L1的约束下求出J<sub>0</sub>取最小值的解</strong>。假设只考虑二维的情况，即只有两个权值$\omega$<sup>1</sup>和$\omega$<sup>2</sup>，此时的L1正则化公式即为：L1 = |$\omega$<sup>1</sup>| + |$\omega$<sup>2</sup>|。对J使用梯度下降法求解，则求解J<sub>0</sub>的过程可以画出等值线，同时L<sub>1</sub>正则化的函数也可以在二维平面上画出来。如下图：<br><img src="https://i.loli.net/2018/11/28/5bfe89e366bba.jpg" alt="L1正则化.jpg"><br>图1 L1正则化</li>
+<li>L2正则化可以防止模型过拟合</li>
 </ul>
+<h2 id="理解L1范数"><a href="#理解L1范数" class="headerlink" title="理解L1范数"></a>理解L1范数</h2><p>理解L1范数，主要需要理解两个问题。第一是L1产生稀疏矩阵的作用，第二是为什么L1可以产生稀疏模型。</p>
+<h3 id="稀疏模型与特征选择"><a href="#稀疏模型与特征选择" class="headerlink" title="稀疏模型与特征选择"></a>稀疏模型与特征选择</h3><p>稀疏矩阵指的是很多元素为0、只有少数元素是非零值的矩阵。以线性回归为例，即得到的线性回归模型的大部分系数都是0，这表示只有少数特征对这个模型有贡献，从而实现了特征选择。总而言之，稀疏模型有助于进行特征选择。</p>
+<h3 id="为什么L1正则化能产生稀疏模型？"><a href="#为什么L1正则化能产生稀疏模型？" class="headerlink" title="为什么L1正则化能产生稀疏模型？"></a>为什么L1正则化能产生稀疏模型？</h3><p>这部分重点讨论为什么L1可以产生稀疏模型，即L1是怎么让系数等于0的。首先要从目标函数讲起，假设带有L1正则化的损失函数如下：<br><img src="https://i.loli.net/2018/11/28/5bfe8500499ce.jpg" alt="目标函数.jpg"><br>其中J<sub>0</sub>是损失函数，后边是L1正则化项，$\alpha$是正则化系数，$\omega$是模型的参数。现在我们的目标是求解argmin<sub>$\omega$</sub>(J)，换句话说，我们的任务是<strong>在L1的约束下求出J<sub>0</sub>取最小值的解</strong>。假设只考虑二维的情况，即只有两个权值$\omega$<sup>1</sup>和$\omega$<sup>2</sup>，此时的L1正则化公式即为：L1 = |$\omega$<sup>1</sup>| + |$\omega$<sup>2</sup>|。对J使用梯度下降法求解，则求解J<sub>0</sub>的过程可以画出等值线，同时L<sub>1</sub>正则化的函数也可以在二维平面上画出来。如下图：<br><img src="https://i.loli.net/2018/11/28/5bfe89e366bba.jpg" alt="L1正则化.jpg"><br>图1 L1正则化</p>
 <p>图中等值线是J<sub>0</sub>的等值线，黑色方形是L<sub>1</sub>函数的图形，J<sub>0</sub>等值线与L<sub>1</sub>图形首次相交的地方就是最优解，我们很容易发现<strong>黑色方形必然首先与等值线相交于方形顶点处</strong>。可以直观想象，因为L<sub>1</sub>函数有很多”<strong>突出的角</strong>“（二维情况下有四个，多维情况下更多），J<sub>0</sub>与这些角接触的概率远大于与其它部分接触的概率。而这些点某些维度为0（以上图为例，交点处$\omega$<sup>1</sup>为0），从而会使部分特征等于0，产生稀疏模型，进而可以用于特征选择。</p>
 <h2 id="理解L2范数"><a href="#理解L2范数" class="headerlink" title="理解L2范数"></a>理解L2范数</h2><h3 id="为什么L2范数可以防止过拟合呢？"><a href="#为什么L2范数可以防止过拟合呢？" class="headerlink" title="为什么L2范数可以防止过拟合呢？"></a>为什么L2范数可以防止过拟合呢？</h3><p>要想知道L2范数为什么可以防止过拟合，首先就要知道什么是过拟合。通俗讲，过拟合是指模型参数较大，模型过于复杂，模型抗扰动能力弱。只要测试数据偏移一点点，就会对结果造成很大的影响。因此，要防止过拟合，其中一种方法就是让参数尽可能的小一些。同L1范数分析一样，我们做出图像，如下图所示：<br><img src="https://i.loli.net/2018/11/28/5bfe943157035.jpg" alt="L2正则化.jpg"><br>图2   L2正则化<br>二维平面下L2正则化的函数图形是个圆，与方形相比，没有突出的棱角。因此交点在坐标轴的概率很低，即使得$\omega$<sup>1</sup>或$\omega$<sup>2</sup>等于零的概率小了许多。由上图可知，<strong>L2中得到的两个权值倾向于均为非零的较小数。</strong> 这也就是<strong>L1稀疏、L2平滑</strong>的原因。</p>
 <p>下面我从公式的角度解释一下，<strong>为什么L2正则化可以获得值很小的参数？</strong></p>
