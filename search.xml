@@ -3,9 +3,9 @@
   <entry>
     <title><![CDATA[深度学习调参总结]]></title>
     <url>%2F2019%2F03%2F18%2F%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E8%B0%83%E5%8F%82%E6%80%BB%E7%BB%93%2F</url>
-    <content type="text"><![CDATA[前言本篇文章总结了我自己深度学习方面的一些调参经验，主要是用DL做NLP相关的任务。另外这里有一篇好文《一文了解深度学习在NLP中的最佳实践经验和技巧》也推荐给大家。 1、激活函数首选Relu，可以很好的防止梯度弥散问题。当然也可以尝试使用leaky relu；2、BatchNorm可以大大加快训练速度和模型性能，是做DL model的标配；3、要注意观察loss，观察loss胜于观察准确率，注意对比训练集和验证集的loss；4、loss设置要合理，一般来说分类就是softmax_loss，回归就是L2的loss；5、Dropout防止过拟合，可直接设置为0.5，一半一半，测试的时候记得要把dropout关掉；6、一般选择Adam优化函数，收敛速度快；7、Learning Rate设置要合理。太大：loss爆炸或者nan；太小：半天loss没反应；8、另外一种过拟合的方式，可以使用early-stopping，对比训练集和验证集的loss。]]></content>
+    <content type="text"><![CDATA[前言本篇文章总结了我自己深度学习方面的一些调参经验，主要是用DL做NLP相关的任务。另外这里有一篇好文《一文了解深度学习在NLP中的最佳实践经验和技巧》也推荐给大家。 1、激活函数首选Relu，可以很好的防止梯度弥散问题。当然也可以尝试使用leaky relu；2、Batch Normalization 可以大大加快训练速度和模型性能，是做DL model的标配；3、要注意观察loss，观察loss胜于观察准确率，注意对比训练集和验证集的loss；4、loss设置要合理，一般来说分类就是softmax_loss，回归就是L2的loss；5、Dropout防止过拟合，可直接设置为0.5，一半一半，测试的时候记得要把dropout关掉；6、一般选择Adam优化函数，收敛速度快；7、Learning Rate设置要合理。太大：loss爆炸或者nan；太小：半天loss没反应；8、另外一种过拟合的方式，可以使用early-stopping，对比训练集和验证集的loss。]]></content>
       <categories>
-        <category>NLP</category>
+        <category>深度学习</category>
       </categories>
   </entry>
   <entry>
